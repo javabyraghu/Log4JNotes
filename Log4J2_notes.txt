@@ -1,0 +1,66 @@
+			Date : 19-11-2022
+			Log4J (Mr. RAGHU)
+			    (ASHOK IT)
+			    SESSION-1
+
+javabyraghu@gmail.com
+	----------------------------------------------------
+*) Logging : getting messages from application (Production server)
+    like success, errors, warnings,..etc
+
+*) Moniter the process, find bugs from realtime environment.
+
+*) Tools :
+1. Log4J 2.x
+2. Java Logging
+3. Commons Logging
+..etc
+
+*) Log Messages can be stored at different places
+  Files, Database, Email , Console..etc
+
+==================================================================
+3 Components
+
+	1. Logger        2. Appender        3. Layout
+      (which classes)   (where to store)   (how to print)
+
+*) Logger : it is a base object in Log4J. It enables/activates 
+   Logging/Moniter of a class/process.
+
+class EmployeeController {
+   Logger log = LogManager.getLogger(EmployeeController.class);
+}
+
+*) Do not create Logger object for Entity/DTO/POJO classes.
+*) Recomanded Controllers/Services..etc
+
+--- Priority Methods -------------------------
+These are pre-defined methods exist in Logger object
+which prints messages based on type.
+
+TRACE  : To find messages from multiple stages/env/apps.
+DEBUG  : To print final result of a process/ internal details
+INFO   : Current Step 
+WARN   : App related messages 
+ERROR  : To give details about exception
+FATAL  : Environment related issues
+ ex:Database Connection is closed.
+
+TRACE > DEBUG > INFO > WARN > ERROR > FATAL
+
+=============================================================
+Appender:- Location of messages to be stored. (classes)
+1. **FileAppender    : Write data to Log File  (___.log)
+2. ConsoleAppender : Prints data at console
+3. JDBCAppender    : Store messages at Database table
+4. SMTPAppender    : Write messages to Email.
+
+*) 1 Project can have even multiple appenders.
+
+Layout: Message Format/Pattern.
+1. Default Layout (Message and NextLine)
+2. HTML Layout (___.html)
+3. XML Layout (___.xml)
+4.*** PatternLayout (Your own format)
+=====================================================================
